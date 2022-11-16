@@ -58,15 +58,3 @@ a {
   height: 0;
   overflow: hidden;
 }
-
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-  background-color: #016aa4;
-  background-image: url('/images/main-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
