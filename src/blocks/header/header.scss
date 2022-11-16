@@ -38,14 +38,14 @@
     &:after {
       content: '';
       position: absolute;
-      bottom: 0;
+      top: 100%;
       left: 0;
       width: 0;
-      height: 0.125rem;
+      height: 1px;
       background-color: $color-white;
     }
 
-    &--active {
+    &.active {
       &:after {
         width: 100%;
       }
