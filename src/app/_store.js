@@ -1,3 +1,12 @@
 export const store = {
-  location: 'page-start', // "page-game", "page-results"
+  language: 'ru',
+  writeAnswerId: null,
+  writeAnswerName: null,
+  writeAnswerName_en: null,
+  writeAnswerImage: null,
+  gameLevel: 1,
+  gameStatus: null,
+  scoreCurrent: 0,
+  scoreTotal: 0,
+  canCheck: false,
 };
