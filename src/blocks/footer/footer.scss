@@ -1,6 +1,67 @@
 .footer {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
   width: 100%;
-  height: 1.875rem;
+  height: 2.5rem;
+  padding: 0 1rem;
   background-color: rgba(255, 255, 255, 0.3);
+
+  &__col {
+    width: 33.33%;
+  }
+
+  &__git-link {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__rs-link {
+    margin-left: auto;
+    display: block;
+    width: 5rem;
+    height: 1.5rem;
+  }
+
+  &__git-link,
+  &__rs-link {
+    fill: $color-white;
+    stroke: $color-white;
+    transition: 0.3s;
+
+    &:hover {
+      fill: $color-black;
+      stroke: $color-black;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1;
+    color: $color-white;
+  }
+}
+
+@include media-mobile {
+  .footer {
+    padding: 0 0.625rem;
+    &__col {
+      &:nth-child(1),
+      &:nth-child(3) {
+        width: 5rem;
+      }
+
+      &:nth-child(2) {
+        flex-grow: 1;
+      }
+    }
+  }
 }

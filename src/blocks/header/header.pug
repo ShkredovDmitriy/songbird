@@ -1,10 +1,19 @@
 header.header
   .header__wrapper
+    a(href="./").header__logo
+      svg.header__logo-icon
+        use(href="#icon-note")
+      span.header__logo-name Songbird
     nav.header__nav
       ul.header__nav-list
         li.header__nav-item
-          button.btn.header__nav-link.header__nav-start-link.active Главная
+          button.button.header__nav-link.active#headerStartLink Главная
         li.header__nav-item
-          button.btn.header__nav-link.header__nav-game-link Викторина
+          button.button.header__nav-link#headerGameLink Викторина
+        li.header__nav-item.d-none
+          button.button.header__nav-link#headerResultsLink Результаты
         li.header__nav-item
-          button.btn.header__nav-link.header__nav-res-link Результаты
+          button.button.header__nav-link#headerGalleryLink Результаты
+    .header__lang
+      button.button.button--lang#langRuButton Ru
+      button.button.button--lang#langEnButton En
