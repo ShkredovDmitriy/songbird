@@ -1,0 +1,52 @@
+.results {
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  &__title {
+    margin-bottom: 2rem;
+    font-size: 3.125rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  &__message {
+    display: flex;
+    margin-bottom: 2rem;
+    font-size: 3.125rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  &__points {
+    margin-left: 0.5rem;
+  }
+}
+
+@include media-tablet-vertical {
+  .results {
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    &__message {
+      display: flex;
+      margin-bottom: 2rem;
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    &__points {
+      margin-left: 0.5rem;
+    }
+  }
+}

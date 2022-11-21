@@ -1,0 +1,15 @@
+section.section.gallery
+  .gallery__wrapper#galleryCards
+  .gallery__player-wrapper
+    .gallery__player
+      button.button.button.gallery__play-button
+        img.icon.icon-play(src="./images/icon-play.svg" alt="")
+        img.icon.icon-pause(src="./images/icon-pause.svg" alt="")
+      .gallery__progress-wrapper
+        .gallery__progress-volume.volume
+          button.button.button-volume.gallery__button-volume
+          input.gallery__volume(type="range" id="question-volume" min="0" max="1" step="0.01" value="1")
+          span vol:
+          span.gallery__progress-loud 100
+        input.gallery__progress(type="range" min="0" max="100" step="0.1" value="0")
+

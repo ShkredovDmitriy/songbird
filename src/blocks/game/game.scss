@@ -1,65 +1,329 @@
 .game {
+  max-width: 80rem;
   padding: 1rem;
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 2rem;
+  }
 
   &__score {
     flex-shrink: 0;
-    margin-bottom: 1rem;
     width: 100%;
-    height: 1rem;
     text-align: right;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     color: $color-white;
   }
 
+  &__volume {
+    margin-left: auto;
+  }
+
   &__steps {
     display: flex;
+    margin-top: auto;
     margin-bottom: 1rem;
+    width: 100%;
   }
 
   &__step {
     width: 20%;
+    &:nth-child(n + 2) {
+      padding-left: 0.3125rem;
+    }
   }
 
-  &__step-button {
+  &__step-indicator {
     width: 100%;
     height: 2rem;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
     color: $color-white;
+    background-color: $color-grey;
+    cursor: default;
+
+    &.active {
+      background-color: $color-green;
+    }
   }
 
   &__question {
-    flex-grow: 1;
+    display: flex;
     margin-bottom: 1rem;
-    height: 5rem;
+    width: 100%;
+    height: 15rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
     border: 0.5rem solid rgba(255, 255, 255, 0.3);
-    border-radius: 0.3125rem;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
-  &__container {
-    flex-grow: 1;
-    margin-bottom: 1rem;
-    height: 10rem;
-    border: 0.5rem solid rgba(255, 255, 255, 0.3);
-    border-radius: 0.3125rem;
+  &__question-poster {
+    position: relative;
+    flex-shrink: 0;
+    width: calc(30% - 1rem);
+    border-radius: 0.375rem;
   }
 
-  &__ansvers {
+  &__question-image {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.375rem;
+  }
+
+  &__question-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1rem;
+    width: 70%;
+    padding: 1rem;
+  }
+
+  &__question-name {
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: $color-white;
+  }
+
+  &__question-sound {
+    display: flex;
+    align-items: center;
+  }
+
+  &__play-button {
+    width: 4rem;
+    height: 4rem;
+
+    &.is-playing {
+      .icon-pause {
+        display: block;
+      }
+
+      .icon-play {
+        display: none;
+      }
+    }
+
+    .icon-pause {
+      display: none;
+    }
+  }
+
+  &__row {
+    flex-grow: 1;
+    display: flex;
+    margin-bottom: 1rem;
+    width: 100%;
+    min-height: 15rem;
+    max-height: 25rem;
+  }
+
+  &__answers {
+    display: flex;
+    flex-direction: column;
+    width: calc(30% - 0.5rem);
+    border: 0.5rem solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &__answer-label {
+    position: relative;
+    width: 100%;
+    height: 16.67%;
+
+    &:nth-child(n + 2) {
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &__answer-radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+
+    &:disabled + .game__answer-name {
+      background-color: transparent;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: transparent;
+      }
+    }
+
+    &.unsuccess + .game__answer-name {
+      background-color: rgba(255, 0, 0, 0.3) !important;
+    }
+
+    &.success + .game__answer-name {
+      background-color: rgba(0, 255, 0, 0.3) !important;
+    }
+  }
+
+  &__answer-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: $color-white;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
   }
 
   &__description {
+    margin-left: auto;
+    width: calc(70% - 0.5rem);
+    padding: 0.5rem;
+    border: 0.5rem solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: $color-white;
   }
 
   &__next-button {
     flex-shrink: 0;
     margin: 0 auto;
+    margin-bottom: auto;
     width: 15.625rem;
     height: 2.25rem;
-    border-radius: 0.3125rem;
-    background-color: #6fbb22;
+    background-color: $color-green;
     font-size: 16px;
     font-weight: 600;
     color: $color-white;
+
+    &:disabled {
+      background-color: #adadad;
+      cursor: default;
+    }
   }
 }
+
+@include media-netbook {
+  .game {
+    &__answer-name {
+      font-size: 1rem;
+    }
+  }
+}
+
+@include media-tablet-vertical {
+  .game {
+    padding: 0.625rem;
+
+    &__controls {
+      margin-bottom: 0.625rem;
+    }
+
+    &__steps {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    &__step {
+      width: 33.3%;
+
+      &:nth-child(n + 4) {
+        padding-top: 0.375rem;
+      }
+    }
+
+    &__question {
+      margin-bottom: 0.625rem;
+    }
+
+    &__question-poster {
+      width: calc(40% - 0.625rem);
+    }
+
+    &__question-data {
+      margin-left: 0.625rem;
+      width: calc(60% - 0.3125rem);
+    }
+
+    &__row {
+      max-height: 20rem;
+    }
+
+    &__answers {
+      width: calc(35% - 0.3125rem);
+    }
+
+    &__description {
+      margin-left: 0.625rem;
+      width: calc(65% - 0.3125rem);
+    }
+  }
+}
+
+@include media-mobile {
+  .game {
+    &__step {
+      width: 50%;
+
+      &:nth-child(n + 3) {
+        padding-top: 0.375rem;
+      }
+    }
+
+    &__question {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0.625rem;
+      height: auto;
+      padding-right: 0.5rem;
+      width: 23.75rem;
+    }
+
+    &__question-poster {
+      width: 100%;
+      height: 16rem;
+    }
+
+    &__question-data {
+      margin-left: 0;
+      margin-top: 0.625rem;
+      width: 100%;
+    }
+
+    &__row {
+      flex-direction: column;
+      max-height: none;
+      align-items: center;
+      margin-bottom: 0.625rem;
+    }
+
+    &__answers {
+      width: 23.75rem;
+    }
+
+    &__description {
+      margin-left: 0;
+      margin-top: 0.625rem;
+      width: 23.75rem;
+    }
+  }
+}
+
+@import './question';
+@import './description';

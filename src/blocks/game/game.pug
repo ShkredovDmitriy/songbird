@@ -1,20 +1,64 @@
 section.section.game
-  .game__score Score: 0
+  .game__controls
+    .game__score
+      span#gameScoreTitle Score:
+      span#gameScore
+    .game__volume
 
   ul.game__steps
     li.game__step
-      button.btn.game__step-button Воробьиные
+      .button.game__step-indicator#gameLevel1Button Воробьиные
     li.game__step
-      button.btn.game__step-button Лесные птицы
+      .button.game__step-indicator#gameLevel2Button Лесные птицы
     li.game__step
-      button.btn.game__step-button Певчие птицы
+      .button.game__step-indicator#gameLevel3Button Певчие птицы
     li.game__step
-      button.btn.game__step-button Хищные птицы
+      .button.game__step-indicator#gameLevel4Button Хищные птицы
     li.game__step
-      button.btn.game__step-button Морские птицы
+      .button.game__step-indicator#gameLevel5Button Морские птицы
 
   .game__question
+    .game__question-poster
+      img.game__question-image(src="", alt="")
 
-  .game__container
+    .game__question-data
+      .game__question-name#gameSecretName *****
+      .game__question-sound
+        .button.button.game__play-button
+          img(src="./images/icon-play.svg", alt="").icon.icon-play
+          img(src="./images/icon-pause.svg", alt="").icon.icon-pause
+        .question__progress-wrapper
+          .question__progress-volume.volume
+            button.button.button-volume.question__button-volume
+            input(type="range" id="question-volume" min="0" max="1" step="0.01" value="1").question__volume
+            span vol:
+            span.question__progress-loud 100
+          input(type="range" id="question-progress" min="0" max="100" step="0.1" value="0").question__progress
+          .question__player-time
+            span.question__curr-time 00:00
+            span.question__max-time 00:00
 
-  button.btn.game__next-button Next Level
+  .game__row
+    .game__answers
+    .game__description
+      .description__row
+        .description__poster
+          img.description__image(src="" alt="")
+        .description__bird
+          p.description__bird-name#gameDescrName
+          p.description__bird-spec
+          .description__player
+            button.button.button.description__play-button
+              img.icon.icon-play(src="./images/icon-play.svg" alt="")
+              img.icon.icon-pause(src="./images/icon-pause.svg" alt="")
+            .description__progress-wrapper
+              .description__progress-volume.volume
+                button.button.button-volume.description__button-volume
+                input(type="range" id="question-volume" min="0" max="1" step="0.01" value="1").description__volume
+                span vol:
+                span.description__progress-loud 100
+              input.description__progress(type="range" min="0" max="100" step="0.1" value="0")
+      .description__about#gameDescrAbout
+      .description__stab#gameDescStab Угадайте птицу по звуку.
+
+  button.button.game__next-button#gameNextButton(disabled="disabled") Next

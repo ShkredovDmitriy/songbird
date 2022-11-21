@@ -1,0 +1,33 @@
+.question {
+  &__progress-wrapper {
+    flex-grow: 1;
+    padding-left: 1rem;
+  }
+
+  &__progress-volume {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 0.25rem;
+      font-size: 14px;
+      line-height: 1;
+      color: $color-white;
+    }
+  }
+
+  &__player-time {
+    flex-grow: 1;
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-white;
+  }
+
+  &__max-time {
+    margin-left: auto;
+  }
+}
+
+@include media-tablet-vertical {
+}
