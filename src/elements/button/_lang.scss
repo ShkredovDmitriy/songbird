@@ -1,0 +1,21 @@
+.button--lang {
+  width: 28px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 1;
+  background-color: #fff;
+  color: $color-black;
+
+  &.active {
+    background-color: $color-green;
+    color: $color-black;
+  }
+}
+
+@include media-mobile {
+  .button--lang {
+    width: 26px;
+    height: 20px;
+    font-size: 12px;
+  }
+}

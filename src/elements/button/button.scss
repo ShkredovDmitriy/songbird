@@ -1,0 +1,17 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+@import './primary';
+@import './volume';
+@import './lang';

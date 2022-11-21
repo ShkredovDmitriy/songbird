@@ -1,0 +1,16 @@
+.button-primary {
+  margin-top: 2rem;
+  width: 14rem;
+  height: 4.5rem;
+  border: 0.625rem solid rgba(255, 255, 255, 0.3);
+  background-color: #6fbb22;
+  font-family: $font-main;
+  font-size: 2rem;
+  font-weight: 800;
+  color: $color-white;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-color: $color-white;
+  }
+}
