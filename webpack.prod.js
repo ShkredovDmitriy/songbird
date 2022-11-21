@@ -16,7 +16,7 @@ const paths = {
   dist: path.resolve(__dirname, 'dist'),
   images: path.resolve(__dirname, 'src/assets/images'),
   docs: path.resolve(__dirname, 'src/assets/documents'),
-  libs: path.resolve(__dirname, 'src/app/libs'),
+  audio: path.resolve(__dirname, 'src/assets/audio'),
 };
 
 function generateHtmlPlugins() {
@@ -52,6 +52,10 @@ module.exports = (env) => {
           {
             from: paths.images,
             to: 'images',
+          },
+          {
+            from: paths.audio,
+            to: 'audio',
           },
         ],
       }),
